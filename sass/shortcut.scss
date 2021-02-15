@@ -1,0 +1,21 @@
+.shortcut {
+  border: 1px solid #ddd;
+  background-color: #e3e4e5;
+  .w {
+    height: 30px;
+    color: #999;
+    line-height: 30px;
+    .fl {
+      li {
+        a {
+          .icon-address {
+            color: #f10215;
+          }
+          .text {
+            color: #999;
+          }
+        }
+      }
+    }
+  }
+}

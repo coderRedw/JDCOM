@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  margin: 0;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+ul, ol, dl , li{
+  list-style: none;
+}
+.back_broad {
+  background-color: #f4f4f4;
+}
+.clearfix::before, .clearfix::before {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+.w {
+  width: 1190px;
+  margin: auto;
+}
