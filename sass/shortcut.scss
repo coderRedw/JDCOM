@@ -1,21 +1,52 @@
+$fontColor: #999;
+$activeColor: #f10215;
+$fontSpacer: #ccc;
+
 .shortcut {
   border: 1px solid #ddd;
   background-color: #e3e4e5;
+
   .w {
     height: 30px;
-    color: #999;
+    color: $fontColor;
     line-height: 30px;
+
     .fl {
       li {
         a {
           .icon-address {
             color: #f10215;
           }
+
           .text {
             color: #999;
           }
         }
       }
     }
+  }
+
+  .fr {
+    li {
+      float: left;
+      margin-right: 8px;
+      text-align: center;
+      line-height: 30px;
+
+      a {
+        color: $fontColor;
+      }
+
+      .active {
+        color: $activeColor;
+      }
+    }
+  }
+
+  .spacer {
+    height: 10px;
+    width: 1px;
+    margin: 11px 5px 0;
+    background-color: $fontSpacer;
   }
 }

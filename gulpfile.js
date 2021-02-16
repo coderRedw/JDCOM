@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-02-16 08:39:49
+ * @LastEditTime: 2021-02-16 10:08:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \JDCOM\src\gulpfile.js
+ */
 (function () {
   const gulp = require('gulp')
   const sass = require('gulp-sass')
@@ -19,6 +27,15 @@
           presets: ['@babel/env']
         }))
         .pipe(gulp.dest('../dist/js'))
+  }
+  // create js2
+  const utilsHandler = function () {
+    return gulp
+        .src('./utils/*.js')
+        .pipe(babel({
+          presets: ['@babel/env']
+        }))
+        .pipe(gulp.dest('../dist/utils'))
   }
   // create html
   const htmlHandler = function () {
@@ -49,9 +66,10 @@
     gulp.watch('./src/js/*.js', jsHandler)
     gulp.watch('./src/views/*.html', htmlHandler)
     gulp.watch('./index.html', indexHtmlHandler)
+    gulp.watch('./utils/*.js', utilsHandler)
 }
   // create default
-  module.exports.default = gulp.parallel(sassHandler, jsHandler, htmlHandler, indexHtmlHandler, watchHandler,webserverHandler)
+  module.exports.default = gulp.parallel(sassHandler, jsHandler, utilsHandler,htmlHandler, indexHtmlHandler, webserverHandler, watchHandler)
 
 
   module.exports.sassHandler = sassHandler
@@ -60,4 +78,5 @@
   module.exports.indexHtmlHandler = indexHtmlHandler
   module.exports.webserverHandler = webserverHandler
   module.exports.watchHandler = watchHandler
+  module.exports.utilsHandler = utilsHandler
 })()
