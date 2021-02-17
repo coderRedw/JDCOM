@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-16 08:39:49
- * @LastEditTime: 2021-02-16 10:08:40
+ * @LastEditTime: 2021-02-16 14:28:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JDCOM\src\gulpfile.js
@@ -11,6 +11,7 @@
   const sass = require('gulp-sass')
   const babel = require('gulp-babel')
   const webserver = require('gulp-webserver')
+  const fileInclude = require('gulp-file-include')
 
   // create sass
   const sassHandler = function () {
@@ -47,6 +48,10 @@
   const indexHtmlHandler = function () {
     return gulp
         .src('./index.html')
+        .pipe(fileInclude({  
+          prefix: '@-@',  
+          basepath: './components/' 
+        }))
         .pipe(gulp.dest('../dist'))
   }
   // create webserver
@@ -60,16 +65,18 @@
           open: './index.html'
         }))
   }
+  
   // create watch
   const watchHandler = function () {
-    gulp.watch('./src/sass/*.scss', sassHandler)
-    gulp.watch('./src/js/*.js', jsHandler)
-    gulp.watch('./src/views/*.html', htmlHandler)
+    gulp.watch('./sass/*.scss', sassHandler)
+    gulp.watch('./js/*.js', jsHandler)
+    gulp.watch('./views/*.html', htmlHandler)
     gulp.watch('./index.html', indexHtmlHandler)
     gulp.watch('./utils/*.js', utilsHandler)
 }
   // create default
-  module.exports.default = gulp.parallel(sassHandler, jsHandler, utilsHandler,htmlHandler, indexHtmlHandler, webserverHandler, watchHandler)
+  module.exports.default = gulp.series(
+    gulp.parallel(sassHandler, jsHandler, utilsHandler,htmlHandler, indexHtmlHandler, webserverHandler), watchHandler)
 
 
   module.exports.sassHandler = sassHandler
