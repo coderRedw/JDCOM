@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-16 08:39:49
- * @LastEditTime: 2021-02-16 14:28:37
+ * @LastEditTime: 2021-02-17 11:17:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \JDCOM\src\gulpfile.js
@@ -65,6 +65,11 @@
           open: './index.html'
         }))
   }
+  const imgHandler = function () {
+    return gulp
+        .src('./img/**')
+        .pipe(gulp.dest('../dist/img/'))
+  }
   
   // create watch
   const watchHandler = function () {
@@ -73,10 +78,11 @@
     gulp.watch('./views/*.html', htmlHandler)
     gulp.watch('./index.html', indexHtmlHandler)
     gulp.watch('./utils/*.js', utilsHandler)
+    gulp.watch('./components/**', indexHtmlHandler)
 }
   // create default
   module.exports.default = gulp.series(
-    gulp.parallel(sassHandler, jsHandler, utilsHandler,htmlHandler, indexHtmlHandler, webserverHandler), watchHandler)
+    gulp.parallel(sassHandler, jsHandler, utilsHandler,htmlHandler, indexHtmlHandler, webserverHandler, imgHandler), watchHandler)
 
 
   module.exports.sassHandler = sassHandler
@@ -86,4 +92,5 @@
   module.exports.webserverHandler = webserverHandler
   module.exports.watchHandler = watchHandler
   module.exports.utilsHandler = utilsHandler
+  module.exports.imgHandler = imgHandler
 })()

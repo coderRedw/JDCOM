@@ -1,0 +1,35 @@
+          /* 顶通占位 */
+          
+          .activity-top {
+            width: 100%;
+            height: 80px;
+            background-color: rgb(200, 0, 0);
+        }
+        
+        .JD-618 {
+            height: 80px;
+            width: 190px;
+            background-image: url(../upload/618.webp);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        
+        .pic {
+            height: 80px;
+            margin-right: auto;
+            margin-left: auto;
+            background-image: url(../upload/activity-top.webp);
+        }
+        
+        .j-promotional {
+            position: absolute;
+            top: 6px;
+            right: 190px;
+            border: 0;
+            background: #2d2d2d;
+            opacity: .3;
+            color: #fff;
+            width: 50px;
+            height: 20px;
+            cursor: pointer;
+        }

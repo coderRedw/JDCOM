@@ -1,6 +1,7 @@
 $fontColor: #999;
 $activeColor: #f10215;
 $fontSpacer: #ccc;
+$borderColor: rgba(0, 0, 0, .2);
 
 .shortcut {
   border: 1px solid #ddd;
@@ -56,6 +57,9 @@ $fontSpacer: #ccc;
 }
 
 .jd_my_jd {
+  li {
+    line-height: normal;
+  }
   a {
     padding: 22px 0;
   }
@@ -67,8 +71,9 @@ $fontSpacer: #ccc;
     width: 280px;
     border: 1px solid $fontSpacer;
     text-align: left;
-    background-color: transparent;
+    background-color: #fff;
     cursor: pointer;
+    z-index: 100;
     &.active {
       display: block;
     }
@@ -92,29 +97,38 @@ $fontSpacer: #ccc;
   }
 }
 
-.jd_buy {
-  height: 100%;
-  .jd_buy_hover {
+.jd_10086 {
+  position: relative;
+  .jd_10086_hover {
     display: none;
-    @extend .jd_my_jd_hover;
-    width: 140;
-    height: 100%;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, .1);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 10px 0;
+    width: 170px;
+    background-color: #fff;
+    border: 1px solid $borderColor;
+    padding: 10px 10px;
+    z-index: 100;
+    text-align: left;
     &.active {
       display: block;
     }
-    .top {
-      // overflow: hidden;
-      padding: 0;
-      white-space: nowrap;
-      .left, .right {
-        width: 60px;
-        overflow: hidden;
-        float: left;
+    .top, .bottom {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      text-align: left;
+      .title {
+        font-size: 12px;
+        font-weight: 700;
+        text-align: left;
+
       }
       a {
-        display: block;
+        float: left;
+        width: 70px;
+        padding-left: 10px;
       }
     }
   }
